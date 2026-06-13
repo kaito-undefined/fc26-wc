@@ -1,0 +1,398 @@
+[
+    {
+        "groupName": "A GRUBU",
+        "teams": [
+            {
+                "name": "ÇEKYA",
+                "played": 2,
+                "average": 10,
+                "points": 6,
+                "flagCode": "cz"
+            },
+            {
+                "name": "GÜNEY KORE",
+                "played": 3,
+                "average": 5,
+                "points": 6,
+                "flagCode": "kr"
+            },
+            {
+                "name": "GÜNEY AFRİKA",
+                "played": 1,
+                "average": -4,
+                "points": 0,
+                "flagCode": "za"
+            },
+            {
+                "name": "MEKSİKA",
+                "played": 2,
+                "average": -11,
+                "points": 0,
+                "flagCode": "mx"
+            }
+        ]
+    },
+    {
+        "groupName": "B GRUBU",
+        "teams": [
+            {
+                "name": "KANADA",
+                "played": 3,
+                "average": 21,
+                "points": 9,
+                "flagCode": "ca"
+            },
+            {
+                "name": "İSVİÇRE",
+                "played": 3,
+                "average": -6,
+                "points": 6,
+                "flagCode": "ch"
+            },
+            {
+                "name": "BOSNA HERSEK",
+                "played": 3,
+                "average": -6,
+                "points": 3,
+                "flagCode": "ba"
+            },
+            {
+                "name": "KATAR",
+                "played": 3,
+                "average": -9,
+                "points": 0,
+                "flagCode": "qa"
+            }
+        ]
+    },
+    {
+        "groupName": "C GRUBU",
+        "teams": [
+            {
+                "name": "HAİTİ",
+                "played": 3,
+                "average": 7,
+                "points": 7,
+                "flagCode": "ht"
+            },
+            {
+                "name": "FAS",
+                "played": 3,
+                "average": 4,
+                "points": 4,
+                "flagCode": "ma"
+            },
+            {
+                "name": "BREZİLYA",
+                "played": 3,
+                "average": 0,
+                "points": 3,
+                "flagCode": "br"
+            },
+            {
+                "name": "İSKOÇYA",
+                "played": 3,
+                "average": -11,
+                "points": 1,
+                "flagCode": "gb-sct"
+            }
+        ]
+    },
+    {
+        "groupName": "D GRUBU",
+        "teams": [
+            {
+                "name": "TÜRKİYE",
+                "played": 3,
+                "average": 18,
+                "points": 9,
+                "flagCode": "tr"
+            },
+            {
+                "name": "ABD",
+                "played": 3,
+                "average": 3,
+                "points": 6,
+                "flagCode": "us"
+            },
+            {
+                "name": "AVUSTURALYA",
+                "played": 3,
+                "average": -9,
+                "points": 3,
+                "flagCode": "au"
+            },
+            {
+                "name": "PARAGUAY",
+                "played": 3,
+                "average": -12,
+                "points": 0,
+                "flagCode": "py"
+            }
+        ]
+    },
+    {
+        "groupName": "E GRUBU",
+        "teams": [
+            {
+                "name": "EKVADOR",
+                "played": 3,
+                "average": 34,
+                "points": 9,
+                "flagCode": "ec"
+            },
+            {
+                "name": "FİLDİŞİ SAHİLİ",
+                "played": 3,
+                "average": 0,
+                "points": 6,
+                "flagCode": "ci"
+            },
+            {
+                "name": "ALMANYA",
+                "played": 3,
+                "average": -3,
+                "points": 3,
+                "flagCode": "de"
+            },
+            {
+                "name": "KURASAO",
+                "played": 3,
+                "average": -31,
+                "points": 0,
+                "flagCode": "cw"
+            }
+        ]
+    },
+    {
+        "groupName": "F GRUBU",
+        "teams": [
+            {
+                "name": "TUNUS",
+                "played": 3,
+                "average": 26,
+                "points": 7,
+                "flagCode": "tn"
+            },
+            {
+                "name": "HOLLANDA",
+                "played": 3,
+                "average": 23,
+                "points": 7,
+                "flagCode": "nl"
+            },
+            {
+                "name": "JAPONYA",
+                "played": 3,
+                "average": 1,
+                "points": 3,
+                "flagCode": "jp"
+            },
+            {
+                "name": "İSVEÇ",
+                "played": 3,
+                "average": -50,
+                "points": 0,
+                "flagCode": "se"
+            }
+        ]
+    },
+    {
+        "groupName": "G GRUBU",
+        "teams": [
+            {
+                "name": "MISIR",
+                "played": 3,
+                "average": 7,
+                "points": 7,
+                "flagCode": "eg"
+            },
+            {
+                "name": "YENİ ZELANDA",
+                "played": 3,
+                "average": 7,
+                "points": 5,
+                "flagCode": "nz"
+            },
+            {
+                "name": "BELÇİKA",
+                "played": 3,
+                "average": 5,
+                "points": 4,
+                "flagCode": "be"
+            },
+            {
+                "name": "İRAN",
+                "played": 3,
+                "average": -19,
+                "points": 0,
+                "flagCode": "ir"
+            }
+        ]
+    },
+    {
+        "groupName": "H GRUBU",
+        "teams": [
+            {
+                "name": "URUGUAY",
+                "played": 3,
+                "average": 12,
+                "points": 9,
+                "flagCode": "uy"
+            },
+            {
+                "name": "İSPANYA",
+                "played": 3,
+                "average": 9,
+                "points": 6,
+                "flagCode": "es"
+            },
+            {
+                "name": "YEŞİL BURUN ADALARI",
+                "played": 3,
+                "average": 2,
+                "points": 3,
+                "flagCode": "cv"
+            },
+            {
+                "name": "SUUDİ ARABİSTAN",
+                "played": 3,
+                "average": -23,
+                "points": 0,
+                "flagCode": "sa"
+            }
+        ]
+    },
+    {
+        "groupName": "I GRUBU",
+        "teams": [
+            {
+                "name": "NORVEÇ",
+                "played": 2,
+                "average": 8,
+                "points": 6,
+                "flagCode": "no"
+            },
+            {
+                "name": "FRANSA",
+                "played": 3,
+                "average": 5,
+                "points": 6,
+                "flagCode": "fr"
+            },
+            {
+                "name": "SENEGAL",
+                "played": 3,
+                "average": -4,
+                "points": 3,
+                "flagCode": "sn"
+            },
+            {
+                "name": "IRAK",
+                "played": 2,
+                "average": -9,
+                "points": 0,
+                "flagCode": "iq"
+            }
+        ]
+    },
+    {
+        "groupName": "J GRUBU",
+        "teams": [
+            {
+                "name": "ARJANTİN",
+                "played": 2,
+                "average": 6,
+                "points": 4,
+                "flagCode": "ar"
+            },
+            {
+                "name": "AVUSTURYA",
+                "played": 2,
+                "average": 0,
+                "points": 2,
+                "flagCode": "at"
+            },
+            {
+                "name": "CEZAYİR",
+                "played": 2,
+                "average": -6,
+                "points": 1,
+                "flagCode": "dz"
+            },
+            {
+                "name": "ÜRDÜN",
+                "played": 0,
+                "average": 0,
+                "points": 0,
+                "flagCode": "jo"
+            }
+        ]
+    },
+    {
+        "groupName": "K GRUBU",
+        "teams": [
+            {
+                "name": "PORTEKİZ",
+                "played": 3,
+                "average": 18,
+                "points": 9,
+                "flagCode": "pt"
+            },
+            {
+                "name": "ÖZBEKİSTAN",
+                "played": 2,
+                "average": -2,
+                "points": 3,
+                "flagCode": "uz"
+            },
+            {
+                "name": "KOLOMBİYA",
+                "played": 2,
+                "average": -7,
+                "points": 0,
+                "flagCode": "co"
+            },
+            {
+                "name": "KONGO",
+                "played": 1,
+                "average": -9,
+                "points": 0,
+                "flagCode": "cd"
+            }
+        ]
+    },
+    {
+        "groupName": "L GRUBU",
+        "teams": [
+            {
+                "name": "İNGİLTERE",
+                "played": 2,
+                "average": 5,
+                "points": 4,
+                "flagCode": "gb-eng"
+            },
+            {
+                "name": "HIRVATİSTAN",
+                "played": 2,
+                "average": 1,
+                "points": 3,
+                "flagCode": "hr"
+            },
+            {
+                "name": "PANAMA",
+                "played": 2,
+                "average": -6,
+                "points": 1,
+                "flagCode": "pa"
+            },
+            {
+                "name": "GANA",
+                "played": 0,
+                "average": 0,
+                "points": 0,
+                "flagCode": "gh"
+            }
+        ]
+    }
+]
