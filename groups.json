@@ -268,9 +268,9 @@
         "teams": [
             {
                 "name": "NORVEÇ",
-                "played": 2,
-                "average": 8,
-                "points": 6,
+                "played": 3,
+                "average": 22,
+                "points": 9,
                 "flagCode": "no"
             },
             {
@@ -289,8 +289,8 @@
             },
             {
                 "name": "IRAK",
-                "played": 2,
-                "average": -9,
+                "played": 3,
+                "average": -12,
                 "points": 0,
                 "flagCode": "iq"
             }
