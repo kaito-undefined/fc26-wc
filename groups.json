@@ -341,9 +341,9 @@
             },
             {
                 "name": "ÖZBEKİSTAN",
-                "played": 2,
-                "average": -2,
-                "points": 3,
+                "played": 3,
+                "average": -1,
+                "points": 6,
                 "flagCode": "uz"
             },
             {
@@ -355,8 +355,8 @@
             },
             {
                 "name": "KONGO",
-                "played": 1,
-                "average": -9,
+                "played": 2,
+                "average": -10,
                 "points": 0,
                 "flagCode": "cd"
             }
