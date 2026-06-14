@@ -366,16 +366,23 @@
         "groupName": "L GRUBU",
         "teams": [
             {
-                "name": "İNGİLTERE",
+                "name": "GANA",
                 "played": 2,
-                "average": 5,
+                "average": 2,
+                "points": 6,
+                "flagCode": "gh"
+            }
+            {
+                "name": "İNGİLTERE",
+                "played": 3,
+                "average": 4,
                 "points": 4,
                 "flagCode": "gb-eng"
             },
             {
                 "name": "HIRVATİSTAN",
-                "played": 2,
-                "average": 1,
+                "played": 3,
+                "average": 0,
                 "points": 3,
                 "flagCode": "hr"
             },
@@ -385,13 +392,6 @@
                 "average": -6,
                 "points": 1,
                 "flagCode": "pa"
-            },
-            {
-                "name": "GANA",
-                "played": 0,
-                "average": 0,
-                "points": 0,
-                "flagCode": "gh"
             }
         ]
     }
