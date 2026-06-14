@@ -4,9 +4,9 @@
         "teams": [
             {
                 "name": "ÇEKYA",
-                "played": 2,
-                "average": 10,
-                "points": 6,
+                "played": 3,
+                "average": 13,
+                "points": 9,
                 "flagCode": "cz"
             },
             {
@@ -25,8 +25,8 @@
             },
             {
                 "name": "GÜNEY AFRİKA",
-                "played": 2,
-                "average": -7,
+                "played": 3,
+                "average": -10,
                 "points": 0,
                 "flagCode": "za"
             }
