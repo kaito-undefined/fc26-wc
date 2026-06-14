@@ -301,16 +301,16 @@
         "teams": [
             {
                 "name": "ARJANTİN",
-                "played": 2,
-                "average": 6,
-                "points": 4,
+                "played": 3,
+                "average": 12,
+                "points": 7,
                 "flagCode": "ar"
             },
             {
                 "name": "AVUSTURYA",
-                "played": 2,
-                "average": 0,
-                "points": 2,
+                "played": 3,
+                "average": 4,
+                "points": 5,
                 "flagCode": "at"
             },
             {
@@ -322,8 +322,8 @@
             },
             {
                 "name": "ÜRDÜN",
-                "played": 0,
-                "average": 0,
+                "played": 2,
+                "average": -10,
                 "points": 0,
                 "flagCode": "jo"
             }
