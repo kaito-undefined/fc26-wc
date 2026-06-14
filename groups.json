@@ -348,15 +348,15 @@
             },
             {
                 "name": "KOLOMBİYA",
-                "played": 2,
-                "average": -7,
-                "points": 0,
+                "played": 3,
+                "average": -6,
+                "points": 3,
                 "flagCode": "co"
             },
             {
                 "name": "KONGO",
-                "played": 2,
-                "average": -10,
+                "played": 3,
+                "average": -11,
                 "points": 0,
                 "flagCode": "cd"
             }
