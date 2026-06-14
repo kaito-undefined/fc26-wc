@@ -17,18 +17,18 @@
                 "flagCode": "kr"
             },
             {
-                "name": "GÜNEY AFRİKA",
-                "played": 1,
-                "average": -4,
-                "points": 0,
-                "flagCode": "za"
+                "name": "MEKSİKA",
+                "played": 3,
+                "average": -8,
+                "points": 3,
+                "flagCode": "mx"
             },
             {
-                "name": "MEKSİKA",
+                "name": "GÜNEY AFRİKA",
                 "played": 2,
-                "average": -11,
+                "average": -7,
                 "points": 0,
-                "flagCode": "mx"
+                "flagCode": "za"
             }
         ]
     },
