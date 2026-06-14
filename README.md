@@ -2,6 +2,9 @@
 
 Welcome to the official repository for the **2026 World Cup Qualifiers Dashboard**. This web application provides an interactive, visually stunning, and dynamic interface to track the group stage standings of a unique, community-driven tournament.
 
+## 🔗 Visit the Site
+You can visit the deployed site from [this](https://kaito-undefined.github.io/fc26-wc/) link.
+
 ## 📝 About the Project
 
 This project was born out of a custom **2026 World Cup Tournament organized entirely on Twitter, hosted by @rrbnnts**. 
