@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC 26 - TS Taym 2026 Dünya Kupası Eleme Aşaması</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --c-dark-red: #5e0b15;
+            --c-red: #e3001b;
+            --c-purple: #9b72e5;
+            --c-blue: #143deb;
+            --c-green: #b2eb14;
+            --c-teal: #14ebd9;
+            --c-yellow: #ebeb14;
+            --c-gold: #ffcc00;
+            --line-default: #dcdcdc;
+            --line-width: 0.15vw;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--c-purple);
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            background:
+                radial-gradient(circle at 90% -10%, var(--c-yellow) 10%, var(--c-green) 10.1%, var(--c-green) 20%, var(--c-teal) 20.1%, var(--c-teal) 30%, transparent 30.1%),
+                radial-gradient(circle at -10% 110%, var(--c-red) 15%, var(--c-dark-red) 15.1%, var(--c-dark-red) 30%, var(--c-purple) 30.1%, var(--c-purple) 45%, var(--c-blue) 45.1%, var(--c-blue) 60%, transparent 60.1%);
+            background-color: var(--c-blue);
+        }
+
+        .wave {
+            position: fixed;
+            width: 200vw;
+            height: 200vw;
+            border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+            animation: spin 35s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .wave1 {
+            top: -100vw;
+            left: -50vw;
+            border: 12vw solid var(--c-green);
+            box-sizing: border-box;
+        }
+
+        .wave2 {
+            top: -110vw;
+            left: -60vw;
+            border: 10vw solid var(--c-teal);
+            box-sizing: border-box;
+            animation-duration: 45s;
+        }
+
+        .wave3 {
+            top: -120vw;
+            left: -70vw;
+            border: 8vw solid var(--c-yellow);
+            box-sizing: border-box;
+            animation-duration: 30s;
+        }
+
+        .wave4 {
+            bottom: -100vw;
+            right: -50vw;
+            border: 15vw solid var(--c-red);
+            box-sizing: border-box;
+            border-radius: 50% 50% 30% 70% / 50% 50% 70% 30%;
+            animation-duration: 25s;
+            animation-direction: reverse;
+        }
+
+        .wave5 {
+            bottom: -115vw;
+            right: -65vw;
+            border: 15vw solid var(--c-dark-red);
+            box-sizing: border-box;
+            border-radius: 50% 50% 30% 70% / 50% 50% 70% 30%;
+            animation-duration: 32s;
+            animation-direction: reverse;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .scale-container {
+            position: relative;
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2vh 1vw;
+            box-sizing: border-box;
+        }
+
+        .tournament-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            width: 98vw;
+            height: 94vh;
+        }
+
+        .bracket-half {
+            display: flex;
+            width: 41vw;
+            justify-content: space-between;
+        }
+
+        .bracket-half.right-side {
+            flex-direction: row-reverse;
+        }
+
+        .round {
+            display: flex;
+            flex-direction: column;
+            width: 8vw;
+            height: 100%;
+        }
+
+        .center-final {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 12vw;
+            height: 100%;
+            position: relative;
+        }
+
+        .round-1 .match-cell {
+            height: 12.5%;
+        }
+
+        .round-2 .match-cell {
+            height: 25%;
+        }
+
+        .round-3 .match-cell {
+            height: 50%;
+        }
+
+        .round-4 .match-cell {
+            height: 100%;
+        }
+
+        .match-cell {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .match-box {
+            background: rgba(20, 5, 20, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 0.5vw;
+            padding: 0.4vh 0.4vw;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 5;
+            box-sizing: border-box;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.3vh 0.4vw;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.70vw;
+            font-weight: 600;
+            border-radius: 0.3vw;
+        }
+
+        .team-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5vw;
+        }
+
+        .team-info img {
+            width: 1.2vw;
+            height: 0.9vw;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        .team.winner {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .team.winner .score {
+            color: var(--c-green);
+            font-weight: 800;
+        }
+
+        .trophy-container {
+            position: absolute; 
+            bottom: calc(50% + 7.5vw);
+        }
+
+        .trophy-container svg {
+            width: 10vw;
+            height: 10vw;
+            filter: drop-shadow(0 0 10px var(--c-gold));
+        }
+
+        .final-title {
+            position: absolute; 
+            bottom: calc(50% + 5vw);
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 900; 
+            font-size: 1.5vw;
+            color: #fff; 
+            letter-spacing: 0.2vw; 
+            text-align: center;
+            width: 100%;
+        }
+
+        .center-final .match-box {
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%);
+            width: 100%; 
+            padding: 0.8vh 0.8vw; 
+            margin: 0;
+        }
+
+        .center-final .team {
+            font-size: 1vw;
+            padding: 0.6vh 0.6vw;
+        }
+
+        .center-final .team-info img {
+            width: 1.8vw;
+            height: 1.3vw;
+        }
+
+        .match-box::after,
+        .match-box::before,
+        .match-cell::after {
+            box-sizing: border-box;
+        }
+
+        .left-side .match-cell:nth-child(odd)::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            right: -1.5vw;
+            top: 50%;
+            width: 1.5vw;
+            height: 50%;
+            border-top: var(--line-width) solid var(--line-default);
+            border-right: var(--line-width) solid var(--line-default);
+            border-top-right-radius: 0.8vw;
+        }
+
+        .left-side .match-cell:nth-child(even)::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            right: -1.5vw;
+            bottom: 50%;
+            width: 1.5vw;
+            height: 50%;
+            border-bottom: var(--line-width) solid var(--line-default);
+            border-right: var(--line-width) solid var(--line-default);
+            border-bottom-right-radius: 0.8vw;
+        }
+
+        .left-side .round:not(.round-1) .match-box::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            left: -1.5vw;
+            top: calc(50% - (var(--line-width) / 2));
+            width: 1.5vw;
+            border-top: var(--line-width) solid var(--line-default);
+        }
+
+        .right-side .match-cell:nth-child(odd)::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            left: -1.5vw;
+            top: 50%;
+            width: 1.5vw;
+            height: 50%;
+            border-top: var(--line-width) solid var(--line-default);
+            border-left: var(--line-width) solid var(--line-default);
+            border-top-left-radius: 0.8vw;
+        }
+
+        .right-side .match-cell:nth-child(even)::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            left: -1.5vw;
+            bottom: 50%;
+            width: 1.5vw;
+            height: 50%;
+            border-bottom: var(--line-width) solid var(--line-default);
+            border-left: var(--line-width) solid var(--line-default);
+            border-bottom-left-radius: 0.8vw;
+        }
+
+        .right-side .round:not(.round-1) .match-box::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            right: -1.5vw;
+            top: calc(50% - (var(--line-width) / 2));
+            width: 1.5vw;
+            border-top: var(--line-width) solid var(--line-default);
+        }
+
+        .left-side .round-4 .match-cell::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            right: -2vw;
+            top: calc(50% - (var(--line-width) / 2));
+            width: 2vw;
+            height: 0;
+            border: none;
+            border-top: var(--line-width) solid var(--line-default);
+            border-radius: 0;
+        }
+
+        .right-side .round-4 .match-cell::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            left: -2vw;
+            top: calc(50% - (var(--line-width) / 2));
+            width: 2vw;
+            height: 0;
+            border: none;
+            /* Kavisleri ezmek için */
+            border-top: var(--line-width) solid var(--line-default);
+            border-radius: 0;
+        }
+
+        .path-gold-down::after {
+            border-color: var(--c-gold) !important;
+        }
+
+        .path-gold-up::after {
+            border-color: var(--c-gold) !important;
+        }
+
+        .incoming-gold::before {
+            border-color: var(--c-gold) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+    <div class="wave wave4"></div>
+    <div class="wave wave5"></div>
+
+    <div class="scale-container">
+        <div class="tournament-wrapper">
+
+            <div class="bracket-half left-side">
+
+                <div class="col round round-1">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+
+                <div class="col round round-2">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+
+                <div class="col round round-3">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+
+                <div class="col round round-4">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-final">
+                <div class="trophy-container">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M0 0 C1.42033063 1.2007757 2.81480985 2.43254058 4.1875 3.6875 C5.52554688 4.88826172 5.52554688 4.88826172 6.890625 6.11328125 C16.8414644 15.50676489 23.87333778 26.65354702 28.1875 39.6875 C28.44716553 40.40728027 28.70683105 41.12706055 28.97436523 41.86865234 C32.41172919 52.97963289 31.68780519 64.68072806 31.625 76.1875 C31.62229095 77.33933777 31.61958191 78.49117554 31.61679077 79.67791748 C31.54474949 99.91152714 30.32206958 119.70142299 27.1875 139.6875 C27.00026367 140.88391113 26.81302734 142.08032227 26.62011719 143.31298828 C21.89409191 172.33437492 13.29051597 200.3523882 0.625 226.875 C0.09503418 227.98536621 -0.43493164 229.09573242 -0.98095703 230.23974609 C-3.54278704 235.47623078 -6.10335087 240.06932168 -9.67578125 244.67578125 C-14.92848663 252.75625008 -13.67899077 262.42455527 -13.4375 271.6875 C-13.40847996 273.67364722 -13.38073886 275.65981353 -13.35424805 277.64599609 C-13.10023458 292.45063801 -12.21022848 307.05996493 -9.8125 321.6875 C-9.54711426 323.32041992 -9.54711426 323.32041992 -9.27636719 324.98632812 C-4.13895758 355.63332776 4.64035097 386.00447677 21.71875 412.24609375 C23.1875 414.6875 23.1875 414.6875 23.1875 416.6875 C-24.3325 416.6875 -71.8525 416.6875 -120.8125 416.6875 C-119.52835756 413.47714391 -118.5110283 410.99395089 -116.78125 408.140625 C-86.20132994 356.32447538 -78.65815638 290.70834749 -86.8125 231.6875 C-86.9978833 230.2957959 -86.9978833 230.2957959 -87.18701172 228.87597656 C-92.66090702 189.05255888 -106.39739561 148.31015659 -128.8125 114.6875 C-128.73211895 111.47225801 -128.08452193 109.14814459 -126.44921875 106.37890625 C-123.82979641 101.82368342 -122.53663134 99.11138457 -123.5625 93.81640625 C-124.40184279 91.18089551 -125.39377269 88.62760551 -126.4453125 86.0703125 C-132.21610984 71.79171109 -130.49313874 50.75384355 -124.8125 36.6875 C-120.93352387 27.58893842 -116.52763579 19.03259863 -109.8125 11.6875 C-109.01199219 10.79546875 -108.21148437 9.9034375 -107.38671875 8.984375 C-97.92462669 -1.03914365 -86.85309993 -7.80632411 -73.8125 -12.3125 C-72.88953125 -12.6321875 -71.9665625 -12.951875 -71.015625 -13.28125 C-46.94947232 -20.15729362 -19.9763584 -14.78677063 0 0 Z " fill="#FDB912" transform="translate(304.8125,55.3125)"/>
+                        <path d="M0 0 C4.54944287 0.03971804 9.08743707 0.43395084 13.625 0.75 C14.89730469 0.82476562 16.16960937 0.89953125 17.48046875 0.9765625 C31.35617016 1.93151171 31.35617016 1.93151171 37.375 7 C41.11085452 11.59797479 40.41550158 17.38380369 40 23 C39.54728511 25.19777285 39.04604737 27.38603761 38.5 29.5625 C36.17704284 38.90963716 36.36977368 46.05408513 40 55 C51.29521823 51.27576319 60.59477341 45.16187847 67 35 C69 36 69 36 70.1484375 38.90234375 C70.57139637 40.24302739 70.9789377 41.58862584 71.375 42.9375 C71.59124023 43.67170166 71.80748047 44.40590332 72.03027344 45.16235352 C75.09162957 56.21088218 76.53971265 67.64768818 78 79 C78.10602539 79.79696289 78.21205078 80.59392578 78.32128906 81.41503906 C79.27701588 89.53700428 79.24370978 97.70816819 79.25 105.875 C79.25067474 106.66722961 79.25134949 107.45945923 79.25204468 108.2756958 C79.23183232 123.34051071 78.14126343 138.07859734 76 153 C75.83371094 154.19753906 75.66742188 155.39507812 75.49609375 156.62890625 C70.32739473 193.03951932 59.39526809 228.18692596 45.375 262.125 C44.96137207 263.12644043 44.54774414 264.12788086 44.12158203 265.15966797 C41.26195596 271.86902202 41.26195596 271.86902202 39 273 C39.0721875 271.99710937 39.144375 270.99421875 39.21875 269.9609375 C40.85031987 244.55713388 41.48957336 218.25740721 38 193 C37.8146167 191.6082959 37.8146167 191.6082959 37.62548828 190.18847656 C32.15159298 150.36505888 18.41510439 109.62265659 -4 76 C-3.91961895 72.78475801 -3.27202193 70.46064459 -1.63671875 67.69140625 C0.98270359 63.13618342 2.27586866 60.42388457 1.25 55.12890625 C0.41065721 52.49339551 -0.58127269 49.94010551 -1.6328125 47.3828125 C-4.42254251 40.48022339 -4.21686425 33.78949477 -4.25 26.4375 C-4.270625 25.32052734 -4.29125 24.20355469 -4.3125 23.05273438 C-4.34825111 15.34390181 -3.43068945 8.34065028 -1 1 C-0.67 0.67 -0.34 0.34 0 0 Z " fill="#FEDC00" transform="translate(180,94)"/>
+                        <path d="M0 0 C29.7 0 59.4 0 90 0 C94.95 14.85 94.95 14.85 100 30 C104.58013686 40.46004229 109.34901963 50.11497156 115.56640625 59.62890625 C117 62 117 62 117 64 C69.48 64 21.96 64 -27 64 C-25.71585756 60.78964391 -24.6985283 58.30645089 -22.96875 55.453125 C-17.80175331 46.69302948 -13.45978356 37.82583542 -9.6875 28.375 C-9.29175781 27.38790039 -8.89601562 26.40080078 -8.48828125 25.38378906 C-5.22121919 17.00509048 -2.69939692 8.63807016 0 0 Z " fill="#FDB812" transform="translate(211,408)"/>
+                        <path d="M0 0 C2.4199293 1.25419992 3.36381509 2.7448317 4.87890625 5.00390625 C12.34261889 14.90379953 23.90390257 20.55009619 34.40429688 26.75463867 C55.2451299 39.17776201 55.2451299 39.17776201 59.984375 49.48046875 C61.38944584 55.32503571 61.17598011 61.27858898 61.20703125 67.26757812 C61.36815293 74.08392024 62.68413544 78.92045175 65.81640625 84.94140625 C66.49475212 86.60335363 67.168402 88.26739528 67.81640625 89.94140625 C53.97523749 90.26879263 40.8116812 89.32102185 27.40234375 85.52734375 C24.67500076 84.90936573 22.59264215 84.54217894 19.81640625 84.94140625 C18.04264551 86.66295564 18.04264551 86.66295564 16.62890625 89.00390625 C11.69635629 95.84270368 4.63523924 100.77664052 -3.18359375 103.94140625 C-4.50359375 103.94140625 -5.82359375 103.94140625 -7.18359375 103.94140625 C-12.71188972 93.72393066 -11.59657244 86.18301975 -8.859375 75.1953125 C-7.48052723 68.55612064 -7.14275923 62.12829448 -10.18359375 55.94140625 C-14.71923563 52.59935434 -18.92200408 51.87792853 -24.4296875 51.44140625 C-25.43193359 51.35890625 -26.43417969 51.27640625 -27.46679688 51.19140625 C-28.50771484 51.10890625 -29.54863281 51.02640625 -30.62109375 50.94140625 C-32.68250631 50.77741569 -34.74371499 50.61083752 -36.8046875 50.44140625 C-37.71661865 50.36921875 -38.6285498 50.29703125 -39.56811523 50.22265625 C-42.1528916 49.94470774 -44.6441027 49.49153858 -47.18359375 48.94140625 C-43.67580246 36.56096641 -37.07515302 27.10482975 -28.18359375 17.94140625 C-27.631875 17.31621094 -27.08015625 16.69101562 -26.51171875 16.046875 C-21.33475486 10.37015469 -14.81963911 6.68690424 -8.18359375 2.94140625 C-7.14332031 2.3484375 -6.10304687 1.75546875 -5.03125 1.14453125 C-2.18359375 -0.05859375 -2.18359375 -0.05859375 0 0 Z " fill="#FAA619" transform="translate(227.18359375,45.05859375)"/>
+                        <path d="M0 0 C2.25199981 1.66696072 4.31495606 3.42199621 6.3828125 5.3125 C7.72085938 6.51326172 7.72085938 6.51326172 9.0859375 7.73828125 C19.13686122 17.2262434 25.79321761 28.27387815 30.3828125 41.3125 C30.7025 42.19679687 31.0221875 43.08109375 31.3515625 43.9921875 C34.36353653 53.8368804 33.66181005 64.13123549 33.3828125 74.3125 C28.37959011 76.27864008 23.60204397 77.85376254 18.3203125 78.9375 C17.17433594 79.17726563 16.02835937 79.41703125 14.84765625 79.6640625 C11.36644714 80.31556274 7.89402129 80.85049884 4.3828125 81.3125 C3.43277344 81.43753906 2.48273438 81.56257813 1.50390625 81.69140625 C-5.54059766 82.17334465 -5.54059766 82.17334465 -8.5859375 79.73828125 C-15.01060747 71.47124269 -14.95571308 63.03500445 -15.0078125 52.98632812 C-15.20995135 44.43473166 -16.85214252 37.95577478 -22.80859375 31.61328125 C-26.70806934 28.01033584 -31.0245071 25.23987096 -35.5546875 22.5 C-36.38081543 21.98791992 -37.20694336 21.47583984 -38.05810547 20.94824219 C-41.33168048 18.92147445 -44.61867252 16.91747385 -47.91162109 14.92236328 C-69.34986873 1.9310821 -69.34986873 1.9310821 -74.6171875 -7.6875 C-74.6171875 -8.3475 -74.6171875 -9.0075 -74.6171875 -9.6875 C-48.8587987 -18.17261631 -22.69250351 -14.63158435 0 0 Z " fill="#FECA05" transform="translate(302.6171875,53.6875)"/>
+                        <path d="M0 0 C0.33 0 0.66 0 1 0 C1.01458252 1.16120361 1.02916504 2.32240723 1.04418945 3.51879883 C1.47073393 35.05562365 3.56619464 65.03993011 10 96 C10.33 97.65 10.66 99.3 11 101 C-18.37 101 -47.74 101 -78 101 C-77.11413755 93.91310043 -76.19602675 86.86248344 -75.0625 79.8125 C-74.91232422 78.65041016 -74.76214844 77.48832031 -74.60742188 76.29101562 C-73.20589171 67.97271883 -73.20589171 67.97271883 -69.85229492 65.26757812 C-67.27852321 64.01056838 -64.67950054 63.00798226 -62 62 C-59.29451212 60.43548264 -56.74659538 58.66728471 -54.1875 56.875 C-53.50445801 56.39909424 -52.82141602 55.92318848 -52.11767578 55.43286133 C-31.74182306 41.02466293 -14.8910697 23.12767223 -1.4609375 2.1328125 C-0.97882813 1.42898438 -0.49671875 0.72515625 0 0 Z " fill="#FEDC00" transform="translate(290,307)"/>
+                        <path d="M0 0 C29.7 0 59.4 0 90 0 C100 30 100 30 100 32 C63.7 32 27.4 32 -10 32 C-7.80832968 21.04164839 -3.53396221 10.60188662 0 0 Z " fill="#00A650" transform="translate(211,408)"/>
+                        <path d="M0 0 C4.54944287 0.03971804 9.08743707 0.43395084 13.625 0.75 C14.89730469 0.82476562 16.16960937 0.89953125 17.48046875 0.9765625 C31.35617016 1.93151171 31.35617016 1.93151171 37.375 7 C41.11085452 11.59797479 40.41550158 17.38380369 40 23 C39.54728511 25.19777285 39.04604737 27.38603761 38.5 29.5625 C36.29273573 38.44411099 35.82126682 46.58502814 40 55 C40.99 55.495 40.99 55.495 42 56 C32.95568576 58.78939733 24.67661889 59.37937794 15.25 59.1875 C13.96867187 59.17396484 12.68734375 59.16042969 11.3671875 59.14648438 C8.24433305 59.11152705 5.12240459 59.0624609 2 59 C1.18372554 56.60539412 0.37188355 54.20943474 -0.4375 51.8125 C-0.66759766 51.13896484 -0.89769531 50.46542969 -1.13476562 49.77148438 C-3.81723154 41.80183927 -4.21232587 34.796448 -4.25 26.4375 C-4.270625 25.32052734 -4.29125 24.20355469 -4.3125 23.05273438 C-4.34825111 15.34390181 -3.43068945 8.34065028 -1 1 C-0.67 0.67 -0.34 0.34 0 0 Z " fill="#FECA05" transform="translate(180,94)"/>
+                    </svg>
+                </div>
+                <div class="final-title">FİNAL</div>
+                <div class="match-box"></div>
+            </div>
+
+            <div class="bracket-half right-side">
+
+                <div class="col round round-1">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+
+                <div class="col round round-2">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+
+                <div class="col round round-3">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+
+                <div class="col round round-4">
+                    <div class="match-cell">
+                        <div class="match-box"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let teams = [];
+        let scores = [];
+
+        function getWinnerOfMatch(matchIndex) {
+            if (matchIndex >= 32) return null;
+            let leftIdx = matchIndex >= 16 ? (matchIndex - 16) * 2 : getWinnerOfMatch(matchIndex * 2);
+            let rightIdx = matchIndex >= 16 ? (matchIndex - 16) * 2 + 1 : getWinnerOfMatch(matchIndex * 2 + 1);
+
+            const score = scores[matchIndex];
+            if (!score || score[0] === null || score[1] === null || leftIdx === null || rightIdx === null) return null;
+            return score[0] > score[1] ? leftIdx : rightIdx;
+        }
+
+        function getMatchSlotData(slotId) {
+            let leftIdx = slotId >= 16 ? (slotId - 16) * 2 : getWinnerOfMatch(slotId * 2);
+            let rightIdx = slotId >= 16 ? (slotId - 16) * 2 + 1 : getWinnerOfMatch(slotId * 2 + 1);
+            const score = scores[slotId] || [null, null];
+
+            return {
+                team1: leftIdx !== null ? teams[leftIdx] : null,
+                team2: rightIdx !== null ? teams[rightIdx] : null,
+                score1: score[0],
+                score2: score[1]
+            };
+        }
+
+        function renderTeamHTML(team, score, isWinner) {
+            const winnerClass = isWinner ? 'winner' : '';
+            const scoreDisplay = score !== null ? score : '-';
+
+            if (!team) {
+                return `
+                    <div class="team ${winnerClass}">
+                        <div class="team-info"><span>TBD</span></div>
+                        <span class="score">${scoreDisplay}</span>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="team ${winnerClass}">
+                    <div class="team-info">
+                        <img src="https://flagcdn.com/w40/${team.flag}.png" alt="${team.name}">
+                        <span>${team.name.toUpperCase()}</span>
+                    </div>
+                    <span class="score">${scoreDisplay}</span>
+                </div>
+            `;
+        }
+
+        function updateBracketDOM() {
+            const matchMapping = [
+                { selector: '.left-side .round-1 .match-box', indices: [16, 17, 18, 19, 20, 21, 22, 23] },
+                { selector: '.left-side .round-2 .match-box', indices: [8, 9, 10, 11] },
+                { selector: '.left-side .round-3 .match-box', indices: [4, 5] },
+                { selector: '.left-side .round-4 .match-box', indices: [2] },
+                { selector: '.right-side .round-1 .match-box', indices: [24, 25, 26, 27, 28, 29, 30, 31] },
+                { selector: '.right-side .round-2 .match-box', indices: [12, 13, 14, 15] },
+                { selector: '.right-side .round-3 .match-box', indices: [6, 7] },
+                { selector: '.right-side .round-4 .match-box', indices: [3] },
+                { selector: '.center-final .match-box', indices: [1] }
+            ];
+
+            matchMapping.forEach(group => {
+                const elements = document.querySelectorAll(group.selector);
+
+                elements.forEach((box, index) => {
+                    const matchId = group.indices[index];
+                    const matchData = getMatchSlotData(matchId);
+
+                    const t1Won = matchData.score1 !== null && matchData.score2 !== null && matchData.score1 > matchData.score2;
+                    const t2Won = matchData.score1 !== null && matchData.score2 !== null && matchData.score2 > matchData.score1;
+                    const hasWinner = t1Won || t2Won;
+
+                    const cell = box.parentElement;
+
+                    if (matchId !== 1) {
+                        const nextMatchId = Math.floor(matchId / 2);
+                        const nextMatchData = getMatchSlotData(nextMatchId);
+
+                        const nextT1Won = nextMatchData.score1 !== null && nextMatchData.score2 !== null && nextMatchData.score1 > nextMatchData.score2;
+                        const nextT2Won = nextMatchData.score1 !== null && nextMatchData.score2 !== null && nextMatchData.score2 > nextMatchData.score1;
+
+                        let isPathGold = false;
+
+                        if (matchId % 2 === 0 && nextT1Won) {
+                            isPathGold = true;
+                        }
+                        else if (matchId % 2 !== 0 && nextT2Won) {
+                            isPathGold = true;
+                        }
+
+                        if (isPathGold) {
+                            cell.classList.add(index % 2 === 0 ? 'path-gold-down' : 'path-gold-up');
+                        }
+                    }
+
+                    if (matchId < 16 && matchId !== 1) {
+                        box.classList.remove('incoming-gold');
+
+                        if (hasWinner) {
+                            box.classList.add('incoming-gold');
+                        }
+                    }
+
+                    const team1HTML = renderTeamHTML(matchData.team1, matchData.score1, t1Won);
+                    const team2HTML = renderTeamHTML(matchData.team2, matchData.score2, t2Won);
+
+                    box.innerHTML = team1HTML + team2HTML;
+                });
+            });
+        }
+
+        fetch('knockout.json')
+            .then(response => response.json())
+            .then(data => {
+                teams = data.teams;
+                scores = data.scores;
+                updateBracketDOM();
+            });
+    </script>
+
+</body>
+
+</html>

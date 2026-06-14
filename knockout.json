@@ -1,0 +1,52 @@
+{
+    "teams": [
+        { "name": "EKVADOR", "flag": "ec" },
+        { "name": "TBD", "flag": "" },
+        { "name": "NORVEÇ", "flag": "no" },
+        { "name": "TBD", "flag": "" },
+        { "name": "GÜNEY KORE", "flag": "kr" },
+        { "name": "İSVİÇRE", "flag": "ch" },
+        { "name": "TUNUS", "flag": "tn" },
+        { "name": "FAS", "flag": "ma" },
+        { "name": "ÖZBEKİSTAN", "flag": "uz" },
+        { "name": "TBD", "flag": "" },
+        { "name": "URUGUAY", "flag": "uy" },
+        { "name": "AVUSTURYA", "flag": "at" },
+        { "name": "TÜRKİYE", "flag": "tr" },
+        { "name": "TBD", "flag": "" },
+        { "name": "MISIR", "flag": "eg" },
+        { "name": "TBD", "flag": "" },
+        { "name": "HAİTİ", "flag": "ht" },
+        { "name": "HOLLANDA", "flag": "nl" },
+        { "name": "FİLDİŞİ SAHİLİ", "flag": "ci" },
+        { "name": "FRANSA", "flag": "fr" },
+        { "name": "ÇEKYA", "flag": "cz" },
+        { "name": "TBD", "flag": "" },
+        { "name": "TBD", "flag": "" },
+        { "name": "TBD", "flag": "" },
+        { "name": "ARJANTİN", "flag": "ar" },
+        { "name": "İSPANYA", "flag": "es" },
+        { "name": "ABD", "flag": "us" },
+        { "name": "YENİ ZELANDA", "flag": "nz" },
+        { "name": "KANADA", "flag": "ca" },
+        { "name": "TBD", "flag": "" },
+        { "name": "PORTEKİZ", "flag": "pt" },
+        { "name": "TBD", "flag": "" }
+    ],
+    "scores": [
+    null,
+
+    null,
+
+    null, null,
+
+    null, null, null, null,
+
+    null, null, null, null, null, null, null, null,
+
+    null, null, null, null,
+    null, null, null, null,
+    null, null, null, null,
+    null, null, null, null
+]
+}
