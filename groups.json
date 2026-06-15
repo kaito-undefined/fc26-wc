@@ -367,9 +367,9 @@
         "teams": [
             {
                 "name": "GANA",
-                "played": 2,
-                "average": 2,
-                "points": 6,
+                "played": 3,
+                "average": 5,
+                "points": 9,
                 "flagCode": "gh"
             },
             {
@@ -388,8 +388,8 @@
             },
             {
                 "name": "PANAMA",
-                "played": 2,
-                "average": -6,
+                "played": 3,
+                "average": -9,
                 "points": 1,
                 "flagCode": "pa"
             }
