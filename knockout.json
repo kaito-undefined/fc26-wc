@@ -21,17 +21,17 @@
         { "name": "FİLDİŞİ SAHİLİ", "flag": "ci" },
         { "name": "FRANSA", "flag": "fr" },
         { "name": "ÇEKYA", "flag": "cz" },
-        { "name": "TBD", "flag": "" },
+        { "name": "ALMANYA", "flag": "de" },
         { "name": "GANA", "flag": "gh" },
-        { "name": "TBD", "flag": "" },
+        { "name": "SENEGAL", "flag": "sn" },
         { "name": "ARJANTİN", "flag": "ar" },
         { "name": "İSPANYA", "flag": "es" },
         { "name": "ABD", "flag": "us" },
         { "name": "YENİ ZELANDA", "flag": "nz" },
         { "name": "KANADA", "flag": "ca" },
-        { "name": "TBD", "flag": "" },
+        { "name": "BELÇİKA", "flag": "be" },
         { "name": "PORTEKİZ", "flag": "pt" },
-        { "name": "TBD", "flag": "" }
+        { "name": "HIRVATİSTAN", "flag": "hr" }
     ],
     "scores": [
     null,
