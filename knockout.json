@@ -44,9 +44,9 @@
 
     null, null, null, null, null, null, null, null,
 
+    [12, 2], null, [3, 4], null,
     null, null, null, null,
-    null, null, null, null,
-    null, null, null, null,
-    null, null, null, null
+    null, null, null, [6, 3],
+    null, null, [10, 2], null
 ]
 }
