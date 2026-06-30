@@ -344,11 +344,106 @@
             });
         }
 
-        fetch('groups.json')
+        const flagMap = {
+            "Meksika": "mx",
+            "Güney Afrika": "za",
+            "Güney Kore": "kr",
+            "Çekya": "cz",
+            "Kanada": "ca",
+            "Bosna-Hersek": "ba",
+            "Katar": "qa",
+            "İsviçre": "ch",
+            "Brezilya": "br",
+            "Fas": "ma",
+            "Haiti": "ht",
+            "İskoçya": "gb-sct",
+            "ABD": "us",
+            "Paraguay": "py",
+            "Avustralya": "au",
+            "Türkiye": "tr",
+            "Almanya": "de",
+            "Curaçao": "cw",
+            "Fildişi Sahili": "ci",
+            "Ekvador": "ec",
+            "Hollanda": "nl",
+            "Japonya": "jp",
+            "İsveç": "se",
+            "Tunus": "tn",
+            "Belçika": "be",
+            "Mısır": "eg",
+            "İran": "ir",
+            "Yeni Zelanda": "nz",
+            "Uruguay": "uy",
+            "Suudi Arabistan": "sa",
+            "Yeşil Burun Adaları": "cv",
+            "İspanya": "es",
+            "Norveç": "no",
+            "Senegal": "sn",
+            "Irak": "iq",
+            "Fransa": "fr",
+            "Avusturya": "at",
+            "Cezayir": "dz",
+            "Arjantin": "ar",
+            "Ürdün": "jo",
+            "Kongo DC": "cd",
+            "Kolombiya": "co",
+            "Portekiz": "pt",
+            "Özbekistan": "uz",
+            "İngiltere": "gb-eng",
+            "Gana": "gh",
+            "Panama": "pa",
+            "Hırvatistan": "hr"
+        };
+
+        const sheetId = '1lH1T198E3i5fF0Hci35noxNjsipKRbo-glAvxksx-hI';
+        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
+
+        fetch(url)
             .then(res => {
-                return res.json();
+                return res.text();
+            }).then(text => {
+                return JSON.parse(text.substring(47, text.length - 2));
             }).then(data => {
-                renderGroups(data);
+                const rows = data.table.rows;
+                
+                let groups = [];
+                let currentGroup = null;
+
+                rows.forEach(row => {
+                    if (!row || !row.c || !row.c[0] || !row.c[0].v) return;
+                    
+                    const firstCol = row.c[0].v.toString().trim();
+                    
+                    if (firstCol.startsWith("Group ")) {
+                        const groupLetter = firstCol.replace("Group ", "").toUpperCase();
+                        currentGroup = {
+                            groupName: `${groupLetter} GRUBU`,
+                            teams: []
+                        };
+                        groups.push(currentGroup);
+                    } 
+                    else if (firstCol === "Takım") {
+                        return;
+                    } 
+                    else {
+                        if (!currentGroup) {
+                            currentGroup = {
+                                groupName: "A GRUBU",
+                                teams: []
+                            };
+                            groups.push(currentGroup);
+                        }
+
+                        currentGroup.teams.push({
+                            name: firstCol.toUpperCase(),
+                            played: row.c[1] ? Number(row.c[1].v) : 0,
+                            average: row.c[7] ? Number(row.c[7].v) : 0,
+                            points: row.c[8] ? Number(row.c[8].v) : 0,
+                            flagCode: flagMap[firstCol] || "un"
+                        });
+                    }
+                });
+                renderGroups(groups);
             });
     </script>
 
